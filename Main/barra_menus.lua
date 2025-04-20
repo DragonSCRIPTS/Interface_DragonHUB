@@ -7,7 +7,7 @@ local CoreGui = game:GetService("CoreGui")
 -- Carregar a configuração dos menus
 local function carregarConfiguracao()
     local success, menuConfig = pcall(function()
-        return loadstring(game:HttpGet("https://exemplo.com/config_menus.lua"))()
+        return loadstring(game:HttpGet("https://raw.githubusercontent.com/DragonSCRIPTS/Interface_DragonHUB/refs/heads/main/Main/config_menus.lua"))()
     end)
     
     if success then
