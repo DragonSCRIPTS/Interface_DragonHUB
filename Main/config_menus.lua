@@ -20,7 +20,7 @@ return {
     {
         nome = "Visual",
         ativo = true,
-        imagemURL = "rbxassetid://987654321",  -- [on] com link para imagem
+        imagemURL = "rbxassetid://126417791294855",  -- [on] com link para imagem
     },
     {
         nome = "Combate",
