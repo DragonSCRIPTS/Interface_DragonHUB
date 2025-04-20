@@ -3,22 +3,22 @@
 
 return {
     {
-        nome = "Principal",
+        nome = "farming",
         ativo = true,
         imagemURL = nil,  -- [off] já que não tem imagem
     },
     {
-        nome = "Jogador",
+        nome = "Missões E itens",
         ativo = true,
         imagemURL = "rbxassetid://123456789",  -- [on] com link para imagem
     },
     {
-        nome = "Mundo",
+        nome = "V4",
         ativo = true,
         imagemURL = nil,  -- [off] já que não tem imagem
     },
     {
-        nome = "Visual",
+        nome = "teleport",
         ativo = true,
         imagemURL = "rbxassetid://126417791294855",  -- [on] com link para imagem
     },
