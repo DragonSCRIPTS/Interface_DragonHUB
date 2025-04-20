@@ -7,7 +7,7 @@ local CoreGui = game:GetService("CoreGui")
 
 -- Carregar a barra de menus junto com o menu principal
 local function carregarBarraDeMenus()
-    loadstring(game:HttpGet("https://exemplo.com/barra_menus.lua"))()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/DragonSCRIPTS/Interface_DragonHUB/refs/heads/main/Main/barra_menus.lua"))()
 end
 
 -- Função para carregar o botão flutuante quando fechar o menu
