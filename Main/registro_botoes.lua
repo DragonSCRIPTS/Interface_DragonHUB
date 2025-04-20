@@ -33,11 +33,11 @@ return {
     
     -- Botão de Velocidade
     {
-        nome = "Speed Hack",
+        nome = "porta trial",
         tamanho = {X = 200, Y = 50},
         linkCarregamento = "https://raw.githubusercontent.com/usuario/repositorio/branch/scripts/speed_hack.lua",
-        descricao = "Aumenta a velocidade do seu personagem",
-        menu = "movimento"
+        descricao = "ir automaticamente para porta da raça do usuário",
+        menu = "V4"
     },
     
     -- Botão de Teleporte
@@ -46,7 +46,7 @@ return {
         tamanho = {X = 200, Y = 50},
         linkCarregamento = "https://raw.githubusercontent.com/usuario/repositorio/branch/scripts/teleport.lua",
         descricao = "Teleporta para locais específicos do mapa",
-        menu = "utilidades"
+        menu = "teleport"
     },
     
     -- Botão de Auto Click
@@ -55,7 +55,7 @@ return {
         tamanho = {X = 200, Y = 50},
         linkCarregamento = "https://raw.githubusercontent.com/usuario/repositorio/branch/scripts/auto_click.lua",
         descricao = "Clica automaticamente para você",
-        menu = "utilidades"
+        menu = "configurações"
     },
     
     -- Botão de Infinite Jump
@@ -64,7 +64,7 @@ return {
         tamanho = {X = 200, Y = 50},
         linkCarregamento = "https://raw.githubusercontent.com/usuario/repositorio/branch/scripts/infinite_jump.lua",
         descricao = "Permite pular sem limite",
-        menu = "movimento"
+        menu = "configurações"
     },
     
     -- Botão de Aimbot
@@ -73,7 +73,7 @@ return {
         tamanho = {X = 200, Y = 50},
         linkCarregamento = "https://raw.githubusercontent.com/usuario/repositorio/branch/scripts/aimbot.lua",
         descricao = "Sistema de mira automática",
-        menu = "combate"
+        menu = "configurações"
     },
     
     -- Botão de NoClip
@@ -82,7 +82,7 @@ return {
         tamanho = {X = 200, Y = 50},
         linkCarregamento = "https://raw.githubusercontent.com/usuario/repositorio/branch/scripts/noclip.lua",
         descricao = "Atravessa paredes e objetos",
-        menu = "movimento"
+        menu = "configurações"
     },
     
     -- Botão de Fly
@@ -91,7 +91,7 @@ return {
         tamanho = {X = 200, Y = 50},
         linkCarregamento = "https://raw.githubusercontent.com/usuario/repositorio/branch/scripts/fly.lua",
         descricao = "Permite que seu personagem voe",
-        menu = "movimento"
+        menu = "configurações"
     },
     
     -- Botão de Item Farm
