@@ -7,7 +7,7 @@ local CoreGui = game:GetService("CoreGui")
 
 -- Função para carregar o menu principal quando clicar no flutuante
 local function carregarMenuPrincipal()
-    loadstring(game:HttpGet("https://exemplo.com/menu_principal.lua"))()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/DragonSCRIPTS/Interface_DragonHUB/refs/heads/main/Main/menu_principal.lua"))()
     -- Remover o flutuante quando o menu principal for carregado
     if CoreGui:FindFirstChild("FloatingButton") then
         CoreGui.FloatingButton:Destroy()
