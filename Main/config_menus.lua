@@ -23,7 +23,7 @@ return {
         imagemURL = "rbxassetid://126417791294855",  -- [on] com link para imagem
     },
     {
-        nome = "Combate",
+        nome = "configurações",
         ativo = false,  -- Este menu não estará disponível
         imagemURL = nil,
     },
