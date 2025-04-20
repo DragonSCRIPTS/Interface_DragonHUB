@@ -9,7 +9,7 @@ local GuiService = game:GetService("GuiService")
 local parent = game:GetService("CoreGui")
 
 -- ID da imagem para o botão flutuante
-local imageId = "rbxassetid://122396060069769"
+local imageId = "rbxassetid://126417791294855"
 
 -- Função para carregar o menu principal quando clicar no flutuante
 local function carregarMenuPrincipal()
