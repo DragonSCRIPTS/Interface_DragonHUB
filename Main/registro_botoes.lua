@@ -7,7 +7,7 @@ return {
     {
         nome = "Auto Farm",
         tamanho = {X = 200, Y = 50},
-        linkCarregamento = "https://raw.githubusercontent.com/usuario/repositorio/branch/scripts/auto_farm.lua",
+        linkCarregamento = "https://raw.githubusercontent.com/DragonSCRIPTS/hub_Ultra/refs/heads/main/fun%C3%A7%C3%B5es/auto_farm.lua",
         descricao = "Ativa o modo de coleta automática de recursos",
         menu = "Auto Farm"
     },
