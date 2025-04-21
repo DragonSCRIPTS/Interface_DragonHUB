@@ -3,32 +3,52 @@
 
 return {
     {
-        nome = "farming",
+        nome = "Auto Farm",
         ativo = true,
         imagemURL = nil,  -- [off] já que não tem imagem
     },
     {
-        nome = "Missões E itens",
-        ativo = true,
-        imagemURL = "rbxassetid://123456789",  -- [on] com link para imagem
-    },
-    {
-        nome = "V4",
+        nome = "Combat / Skills",
         ativo = true,
         imagemURL = nil,  -- [off] já que não tem imagem
     },
     {
-        nome = "teleport",
+        nome = "Boss",
         ativo = true,
-        imagemURL = "rbxassetid://126417791294855",  -- [on] com link para imagem
+        imagemURL = nil,  -- [off] já que não tem imagem
     },
     {
-        nome = "configurações",
-        ativo = false,  -- Este menu não estará disponível
-        imagemURL = nil,
+        nome = "Race V4",
+        ativo = true,
+        imagemURL = nil,  -- [off] já que não tem imagem
     },
     {
-        nome = "Sobre",
+        nome = "Devil Fruit",
+        ativo = true,
+        imagemURL = nil,  -- [off] já que não tem imagem
+    },
+    {
+        nome = "Teleport",
+        ativo = true,
+        imagemURL = nil,  -- [off] já que não tem imagem
+    },
+    {
+        nome = "ESP",
+        ativo = true,
+        imagemURL = nil,  -- [off] já que não tem imagem
+    },
+    {
+        nome = "Stats",
+        ativo = true,
+        imagemURL = nil,  -- [off] já que não tem imagem
+    },
+    {
+        nome = "Misc",
+        ativo = true,
+        imagemURL = nil,  -- [off] já que não tem imagem
+    },
+    {
+        nome = "UI / Config",
         ativo = true,
         imagemURL = nil,  -- [off] já que não tem imagem
     }
