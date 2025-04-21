@@ -7,7 +7,7 @@ return {
     {
         nome = "Auto Farm",
         tamanho = {X = 200, Y = 50},
-        linkCarregamento = "https://raw.githubusercontent.com/DragonSCRIPTS/hub_Ultra/refs/heads/main/fun%C3%A7%C3%B5es/auto_farm.lua",
+        linkCarregamento = 'loadstring(game:HttpGet("https://raw.githubusercontent.com/DragonSCRIPTS/hub_Ultra/refs/heads/main/fun%C3%A7%C3%B5es/auto_farm.lua"))()',
         descricao = "Ativa o modo de coleta automática de recursos",
         menu = "Auto Farm"
     },
@@ -16,7 +16,7 @@ return {
     {
         nome = "ESP Players",
         tamanho = {X = 200, Y = 50},
-        linkCarregamento = "https://raw.githubusercontent.com/usuario/repositorio/branch/scripts/esp_players.lua",
+        linkCarregamento = 'loadstring(game:HttpGet("https://raw.githubusercontent.com/usuario/repositorio/branch/scripts/esp_players.lua"))()',
         descricao = "Ativa a visualização de jogadores através das paredes",
         menu = "ESP"
     },
@@ -25,7 +25,7 @@ return {
     {
         nome = "Porta Trial",
         tamanho = {X = 200, Y = 50},
-        linkCarregamento = "https://raw.githubusercontent.com/usuario/repositorio/branch/scripts/speed_hack.lua",
+        linkCarregamento = 'loadstring(game:HttpGet("https://raw.githubusercontent.com/usuario/repositorio/branch/scripts/speed_hack.lua"))()',
         descricao = "Ir automaticamente para porta da raça do usuário",
         menu = "Race V4"
     },
@@ -34,7 +34,7 @@ return {
     {
         nome = "Teleporte",
         tamanho = {X = 200, Y = 50},
-        linkCarregamento = "https://raw.githubusercontent.com/usuario/repositorio/branch/scripts/teleport.lua",
+        linkCarregamento = 'loadstring(game:HttpGet("https://raw.githubusercontent.com/usuario/repositorio/branch/scripts/teleport.lua"))()',
         descricao = "Teleporta para locais específicos do mapa",
         menu = "Teleport"
     },
@@ -43,7 +43,7 @@ return {
     {
         nome = "Auto Click",
         tamanho = {X = 200, Y = 50},
-        linkCarregamento = "https://raw.githubusercontent.com/usuario/repositorio/branch/scripts/auto_click.lua",
+        linkCarregamento = 'loadstring(game:HttpGet("https://raw.githubusercontent.com/usuario/repositorio/branch/scripts/auto_click.lua"))()',
         descricao = "Clica automaticamente para você",
         menu = "Combat / Skills"
     },
@@ -52,7 +52,7 @@ return {
     {
         nome = "Pulo Infinito",
         tamanho = {X = 200, Y = 50},
-        linkCarregamento = "https://raw.githubusercontent.com/usuario/repositorio/branch/scripts/infinite_jump.lua",
+        linkCarregamento = 'loadstring(game:HttpGet("https://raw.githubusercontent.com/usuario/repositorio/branch/scripts/infinite_jump.lua"))()',
         descricao = "Permite pular sem limite",
         menu = "Misc"
     },
@@ -61,7 +61,7 @@ return {
     {
         nome = "Aimbot",
         tamanho = {X = 200, Y = 50},
-        linkCarregamento = "https://raw.githubusercontent.com/usuario/repositorio/branch/scripts/aimbot.lua",
+        linkCarregamento = 'loadstring(game:HttpGet("https://raw.githubusercontent.com/usuario/repositorio/branch/scripts/aimbot.lua"))()',
         descricao = "Sistema de mira automática",
         menu = "Combat / Skills"
     },
@@ -70,7 +70,7 @@ return {
     {
         nome = "NoClip",
         tamanho = {X = 200, Y = 50},
-        linkCarregamento = "https://raw.githubusercontent.com/usuario/repositorio/branch/scripts/noclip.lua",
+        linkCarregamento = 'loadstring(game:HttpGet("https://raw.githubusercontent.com/usuario/repositorio/branch/scripts/noclip.lua"))()',
         descricao = "Atravessa paredes e objetos",
         menu = "Misc"
     },
@@ -79,7 +79,7 @@ return {
     {
         nome = "Fly",
         tamanho = {X = 200, Y = 50},
-        linkCarregamento = "https://raw.githubusercontent.com/usuario/repositorio/branch/scripts/fly.lua",
+        linkCarregamento = 'loadstring(game:HttpGet("https://raw.githubusercontent.com/usuario/repositorio/branch/scripts/fly.lua"))()',
         descricao = "Permite que seu personagem voe",
         menu = "Misc"
     },
@@ -88,7 +88,7 @@ return {
     {
         nome = "Item Farm",
         tamanho = {X = 200, Y = 50},
-        linkCarregamento = "https://raw.githubusercontent.com/usuario/repositorio/branch/scripts/item_farm.lua",
+        linkCarregamento = 'loadstring(game:HttpGet("https://raw.githubusercontent.com/usuario/repositorio/branch/scripts/item_farm.lua"))()',
         descricao = "Coleta automaticamente itens próximos",
         menu = "Auto Farm"
     }
