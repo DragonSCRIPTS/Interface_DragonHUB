@@ -112,10 +112,12 @@ local function carregarCriadorBotoesComFiltro(nomeMenu)
             end)
             
             -- Adiciona a função de clique para carregar a lógica
+            -- MODIFICAÇÃO AQUI: Agora executa diretamente o código contido em linkCarregamento,
+            -- já que agora ele contém o comando loadstring completo
             botao.MouseButton1Click:Connect(function()
-                -- Executa o script do link fornecido
+                -- Executa o script diretamente, sem usar HttpGet novamente
                 pcall(function()
-                    loadstring(game:HttpGet(botaoInfo.linkCarregamento))()
+                    loadstring(botaoInfo.linkCarregamento)()
                     print("Carregado: " .. botaoInfo.nome)
                 end)
             end)
