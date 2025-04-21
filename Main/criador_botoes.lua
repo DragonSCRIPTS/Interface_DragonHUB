@@ -93,68 +93,20 @@ local function criarBotoes()
         })
         sombraTransparencia.Parent = sombra
         
-        -- Adiciona efeito de hover com animação
-        local originalColor = botao.BackgroundColor3
-        local hoverColor = Color3.fromRGB(90, 90, 130)
-        local clickColor = Color3.fromRGB(40, 40, 60)
+        -- Adiciona um brilho sutil
+        local highlight = Instance.new("Frame")
+        highlight.Name = "Highlight"
+        highlight.Size = UDim2.new(1, -4, 0, 1)
+        highlight.Position = UDim2.new(0, 2, 0, 2)
+        highlight.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+        highlight.BackgroundTransparency = 0.8
+        highlight.BorderSizePixel = 0
+        highlight.ZIndex = botao.ZIndex + 1
+        highlight.Parent = botao
         
-        -- Configurações para animação
-        local tweenInfo = TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
-        
-        botao.MouseEnter:Connect(function()
-            local tween = TweenService:Create(botao, tweenInfo, {BackgroundColor3 = hoverColor})
-            tween:Play()
-            
-            -- Pequena animação de escala
-            local scaleTween = TweenService:Create(botao, tweenInfo, {Size = UDim2.new(1.05, 0, 1.05, 0)})
-            scaleTween:Play()
-        end)
-        
-        botao.MouseLeave:Connect(function()
-            local tween = TweenService:Create(botao, tweenInfo, {BackgroundColor3 = originalColor})
-            tween:Play()
-            
-            -- Retorna ao tamanho original
-            local scaleTween = TweenService:Create(botao, tweenInfo, {Size = UDim2.new(1, 0, 1, 0)})
-            scaleTween:Play()
-        end)
-        
-        -- Adiciona efeito ao clicar
-        botao.MouseButton1Down:Connect(function()
-            local tween = TweenService:Create(botao, tweenInfo, {BackgroundColor3 = clickColor})
-            tween:Play()
-            
-            -- Efeito de pressionar
-            local scaleTween = TweenService:Create(botao, tweenInfo, {Size = UDim2.new(0.95, 0, 0.95, 0)})
-            scaleTween:Play()
-        end)
-        
-        botao.MouseButton1Up:Connect(function()
-            local tween = TweenService:Create(botao, tweenInfo, {BackgroundColor3 = hoverColor})
-            tween:Play()
-            
-            -- Retorna ao tamanho do hover
-            local scaleTween = TweenService:Create(botao, tweenInfo, {Size = UDim2.new(1.05, 0, 1.05, 0)})
-            scaleTween:Play()
-        end)
-        
-        -- Adiciona a função de clique para carregar a lógica (mantida a original)
-        botao.MouseButton1Click:Connect(function()
-            -- Executa o script do link fornecido
-            pcall(function()
-                loadstring(game:HttpGet(botaoInfo.linkCarregamento))()
-                print("Carregado: " .. botaoInfo.nome)
-                
-                -- Feedback visual de sucesso
-                local sucessoTween = TweenService:Create(botao, TweenInfo.new(0.3), {BackgroundColor3 = Color3.fromRGB(60, 120, 80)})
-                sucessoTween:Play()
-                
-                delay(0.5, function()
-                    local reverterTween = TweenService:Create(botao, TweenInfo.new(0.5), {BackgroundColor3 = originalColor})
-                    reverterTween:Play()
-                end)
-            end)
-        end)
+        local highlightCorner = Instance.new("UICorner")
+        highlightCorner.CornerRadius = UDim.new(1, 0)
+        highlightCorner.Parent = highlight
         
         -- Adiciona um ícone se especificado
         if botaoInfo.icone then
@@ -173,25 +125,11 @@ local function criarBotoes()
             botao.Position = botao.Position + UDim2.new(0, 15, 0, 0) -- Desloca o texto um pouco
         end
         
-        -- Adiciona um brilho sutil
-        local highlight = Instance.new("Frame")
-        highlight.Name = "Highlight"
-        highlight.Size = UDim2.new(1, -4, 0, 1)
-        highlight.Position = UDim2.new(0, 2, 0, 2)
-        highlight.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-        highlight.BackgroundTransparency = 0.8
-        highlight.BorderSizePixel = 0
-        highlight.ZIndex = botao.ZIndex + 1
-        highlight.Parent = botao
-        
-        local highlightCorner = Instance.new("UICorner")
-        highlightCorner.CornerRadius = UDim.new(1, 0)
-        highlightCorner.Parent = highlight
-        
-        -- Adiciona uma descrição (tooltip) se especificada
+        -- Cria um tooltip para a descrição se especificada
+        local tooltip
         if botaoInfo.descricao then
             -- Cria um tooltip que aparece ao passar o mouse
-            local tooltip = Instance.new("Frame")
+            tooltip = Instance.new("Frame")
             tooltip.Name = "Tooltip"
             tooltip.Size = UDim2.new(0, 200, 0, 40)
             tooltip.BackgroundColor3 = Color3.fromRGB(30, 30, 40)
@@ -218,26 +156,121 @@ local function criarBotoes()
             tooltipText.TextSize = 13
             tooltipText.ZIndex = 11
             tooltipText.Parent = tooltip
+        end
+        
+        -- Configurações para animação
+        local tweenInfo = TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
+        local originalColor = botao.BackgroundColor3
+        local hoverColor = Color3.fromRGB(90, 90, 130)
+        local clickColor = Color3.fromRGB(40, 40, 60)
+        local originalSize = UDim2.new(1, 0, 1, 0)
+        local hoverSize = UDim2.new(1.05, 0, 1.05, 0)
+        local clickSize = UDim2.new(0.95, 0, 0.95, 0)
+        
+        -- IMPORTANTE: Separar os manipuladores de eventos para evitar conflitos
+        
+        -- 1. Eventos de hover e aparência
+        botao.MouseEnter:Connect(function()
+            -- Anima a cor do botão
+            local colorTween = TweenService:Create(botao, tweenInfo, {BackgroundColor3 = hoverColor})
+            colorTween:Play()
             
-            botao.MouseEnter:Connect(function()
+            -- Anima o tamanho do botão
+            local scaleTween = TweenService:Create(botao, tweenInfo, {Size = hoverSize})
+            scaleTween:Play()
+            
+            -- Exibe o tooltip se existir
+            if tooltip then
                 tooltip.Position = UDim2.new(1, 10, 0, 0)
                 tooltip.Visible = true
-                
-                -- Animação do tooltip
                 tooltip.BackgroundTransparency = 1
-                local tooltipTween = TweenService:Create(tooltip, TweenInfo.new(0.3), {BackgroundTransparency = 0.1})
+                local tooltipTween = TweenService:Create(tooltip, tweenInfo, {BackgroundTransparency = 0.1})
                 tooltipTween:Play()
-            end)
+            end
+        end)
+        
+        botao.MouseLeave:Connect(function()
+            -- Anima a cor do botão de volta
+            local colorTween = TweenService:Create(botao, tweenInfo, {BackgroundColor3 = originalColor})
+            colorTween:Play()
             
-            botao.MouseLeave:Connect(function()
-                local tooltipTween = TweenService:Create(tooltip, TweenInfo.new(0.2), {BackgroundTransparency = 1})
+            -- Anima o tamanho de volta
+            local scaleTween = TweenService:Create(botao, tweenInfo, {Size = originalSize})
+            scaleTween:Play()
+            
+            -- Esconde o tooltip se existir
+            if tooltip then
+                local tooltipTween = TweenService:Create(tooltip, tweenInfo, {BackgroundTransparency = 1})
                 tooltipTween:Play()
                 
                 delay(0.2, function()
                     tooltip.Visible = false
                 end)
+            end
+        end)
+        
+        -- 2. Eventos de clique visual
+        botao.MouseButton1Down:Connect(function()
+            -- Efeito visual de clique
+            local colorTween = TweenService:Create(botao, tweenInfo, {BackgroundColor3 = clickColor})
+            colorTween:Play()
+            
+            -- Efeito de pressionar
+            local scaleTween = TweenService:Create(botao, tweenInfo, {Size = clickSize})
+            scaleTween:Play()
+        end)
+        
+        botao.MouseButton1Up:Connect(function()
+            -- Efeito visual de soltar o clique
+            local colorTween = TweenService:Create(botao, tweenInfo, {BackgroundColor3 = hoverColor})
+            colorTween:Play()
+            
+            -- Retorna ao tamanho do hover
+            local scaleTween = TweenService:Create(botao, tweenInfo, {Size = hoverSize})
+            scaleTween:Play()
+        end)
+        
+        -- 3. Evento de carregamento do script (PRINCIPAL)
+        -- CORREÇÃO AQUI - Usando função separada para carregamento
+        botao.MouseButton1Click:Connect(function()
+            -- Feedback visual de carregamento
+            local loadingTween = TweenService:Create(botao, TweenInfo.new(0.3), {BackgroundColor3 = Color3.fromRGB(80, 80, 200)})
+            loadingTween:Play()
+            
+            -- IMPORTANTE: Execute o loadstring diretamente e não dentro de pcall para garantir que erros sejam visíveis
+            -- Isso vai carregar o código do link fornecido
+            spawn(function() -- Usando spawn para não travar a interface
+                print("Iniciando carregamento: " .. botaoInfo.nome)
+                
+                -- Tenta carregar o código
+                local success, result = pcall(function()
+                    -- IMPORTANTE: Esta é a linha principal que carrega o script
+                    return loadstring(game:HttpGet(botaoInfo.linkCarregamento))()
+                end)
+                
+                -- Feedback com base no resultado
+                if success then
+                    print("Carregado com sucesso: " .. botaoInfo.nome)
+                    
+                    -- Efeito visual de sucesso
+                    local sucessoTween = TweenService:Create(botao, TweenInfo.new(0.3), {BackgroundColor3 = Color3.fromRGB(60, 180, 80)})
+                    sucessoTween:Play()
+                else
+                    -- Erro no carregamento
+                    warn("Erro ao carregar " .. botaoInfo.nome .. ": " .. tostring(result))
+                    
+                    -- Efeito visual de erro
+                    local erroTween = TweenService:Create(botao, TweenInfo.new(0.3), {BackgroundColor3 = Color3.fromRGB(180, 60, 60)})
+                    erroTween:Play()
+                end
+                
+                -- Retorna à cor original após 1 segundo
+                delay(1, function()
+                    local resetTween = TweenService:Create(botao, TweenInfo.new(0.5), {BackgroundColor3 = originalColor})
+                    resetTween:Play()
+                end)
             end)
-        end
+        end)
     end
 end
 
